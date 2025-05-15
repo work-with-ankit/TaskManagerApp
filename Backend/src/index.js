@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const connectDB = require("./config/db");
 const http = require('http');
 const authRoutes = require('./routes/authRoutes');
+const taskRoutes = require("./routes/taskRoutes");
 
 dotenv.config(); // load enviorment variable 
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 
 app.use('/api/v1', authRoutes);
+app.use("/api/v1", taskRoutes);
 
 
 const PORT= process.env.PORT || 5000; 
